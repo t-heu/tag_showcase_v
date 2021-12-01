@@ -1,0 +1,10 @@
+{
+  "icon": "resources/icons/icon.png",
+  "bin": "app",
+  "categories": [
+    "Utility"
+  ],
+  "lintianOverrides": [
+    "changelog-file-missing-in-native-package"
+  ]
+}

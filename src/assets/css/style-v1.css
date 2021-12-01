@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  outline: 0;
+}
+html, body {
+  height: 100%;
+}
+body {
+  padding: 0 32px;
+  line-height: 1.5;
+  font-size: 1rem;
+  background-color: #2c5396;/*#125899;*/
+  font-family: "Arial", sans-serif;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+.file-input {
+  display: block; 
+  width: 450px;
+}
+.file-input__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  background: #fff;
+  padding: 16px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+@media only screen and (max-width: 500px) {
+  .file-input, .instructions {
+    width: 100%;
+  }
+}
+
+.file-input__form > [type='file'] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.file-input__form > .file-input__button--download {
+  right: 0;
+  margin-right: 100px;
+  z-index: 99;
+  position: absolute;
+  color: #fdd63a;
+}
+
+.file-input__form > .file-input__button {
+  border: none;
+  display: inline-block;
+  position: absolute;
+  z-index: 999;
+  right: 0;
+  font-weight: bold;
+  cursor: pointer;
+  background: #fdd63a;/*#ebd04c;*/
+  color: #1C1C1C;
+  padding: 8px 16px;
+  border-radius: 2px;
+  margin-right: 8px;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.file-input__button + .download {
+  margin-right: 60px;
+}
+
+.file-input__button:hover {
+  background: #2c5396/*#125899*/;
+  color: #fff;
+}
+
+.file-input__form > .file-input__text {
+  overflow-x: scroll;
+  width: 100%;
+  color: #000;
+  white-space: nowrap;
+  /*opacity: .3;*/
+  cursor: pointer;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.file-input__form > .file-input__text::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.file-input__form > .file-input__text {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.footer {
+  margin-top: 1em;
+}
+
+.footer__text, .obs {
+  color: #e5e5e5;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#toast{
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px rgba(75, 50, 50, 0.05);
+  border-left: 8px solid #ff353b;
+  border-radius: 7px;
+  display: grid;
+  grid-template-columns: 1.2fr 6fr 0.5fr;
+  transition: 1s;
+  margin-bottom: 1em;
+}
+.toast__container-1, .toast__container-2{
+  align-self: center;
+}
+.toast__container-1 i{
+  font-size: 40px;
+  color: #ff353b;
+  padding-right: 10px;
+}
+.toast__container-2 p:first-child{
+  color: #101020;
+  font-weight: 600;
+  font-size: 16px;
+}
+.toast__container-2 p:last-child {
+  font-size: 14px;
+  color: #656565;
+  font-weight: 400;
+}
+.toast__button--close {
+  align-self: center;
+  background-color: transparent;
+  font-size: 40px;
+  line-height: 0;
+  color: #656565;
+  cursor: pointer;
+  border: none;
+}
