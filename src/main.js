@@ -15,12 +15,17 @@ dialog.showErrorBox = (title, content) => {
   console.log(`${title}\n${content}`);
 };
 
+// Handle creating/removing shortcuts on Windows when installing/uninstalling.
+if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
+  app.quit();
+}
+
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     title: 'Gerador de Etiquetas V',
-    icon: path.join(__dirname, '../resources/icons/icon.png'),
+    icon: path.join(__dirname, '../resources/icons/app_icon.png'),
     webPreferences: {
       enableRemoteModule: true,
       nodeIntegration: true,

@@ -12,40 +12,49 @@
   "homepage": "./",
   "scripts": {
     "start": "electron .",
-    "clean": "rimraf dist",
-    "build:debian": "npm run clean && npm run exe32 && npm run deb32 && npm run exe64 && npm run deb64",
-    "build:rpm": "npm run clean && npm run exe32 && npm run rpm32 && npm run exe64 && npm run rpm64",
-    "exe32": "electron-packager . app --platform linux --arch ia32 --out /dist/ --prune=true --overwrite",
-    "exe64": "electron-packager . app --platform linux --arch x64 --out /dist/ --prune=true --overwrite",
-    "winexe32": "electron-packager . app --platform win32 --arch ia32 --out /dist/ --prune=true --overwrite",
-    "winexe64": "electron-packager . app --platform win32 --arch x64 --out /dist/ --prune=true --overwrite",
-    "deb32": "electron-installer-debian --src /dist/app-linux-ia32/ --dest dist/installers/deb  --arch i386 --config config.json",
-    "deb64": "electron-installer-debian --src /dist/app-linux-x64/ --dest dist/installers/deb --arch amd64 --config config.json",
-    "rpm32": "electron-installer-redhat--src /dist/app-linux-ia32/ --dest dist/installers/rpm/ --arch i386",
-    "rpm64": "electron-installer-redhat--src /dist/app-linux-x64/ --dest dist/installers/rpm/ --arch x86_64",
-    "set32": "sudo electron-installer-windows --src /dist/app-win32-ia32/ --dest dist/installers/win/ia32/ --config conf.json",
-    "set64": "sudo electron-installer-windows --src /dist/app-win32-x64/ --dest dist/installers/win/x64/ --config conf.json",
-    "build:wind": "npm run clean && npm run winexe32 && npm run set32 && npm run winexe64 && npm run set64"
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "executableName": "geradordeetiquetasv",
+        "icon": "resources/icons/app_icon",
+        "ignore": ["docs", ".git", "README.md", "prettier.config.js", ".eslintrc.js"]
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "geradordeetiquetasv"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {
+            "maintainer": "t-heu",
+            "icon": "resources/icons/app_icon.png"
+          }
+        }
+      ]
+    }
   },
   "dependencies": {
     "ejs-electron": "^2.1.1",
+    "electron-squirrel-startup": "^1.0.0",
     "xlsx": "^0.17.4"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.61",
+    "@electron-forge/maker-deb": "^6.0.0-beta.61",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
     "electron": "^16.0.2",
-    "electron-installer-redhat": "^3.3.0",
-    "electron-installer-debian": "^3.1.0",
-    "electron-installer-windows": "^3.0.0",
-    "electron-packager": "^15.4.0",
-    "rimraf": "^3.0.2",
     "eslint": "^7.8.1",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.1"
-  },
-  "build": {
-    "icon": "app/icon.png"
   }
 }
