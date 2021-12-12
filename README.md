@@ -4,8 +4,8 @@
 
 # Screenshot
 <p align="center">
-  <img alt="home" src="./docs/Captura de tela_2021-11-29_19-44-51.png" width="650" />
-  <img alt="label" src="./docs/Captura de tela_2021-11-29_19-45-13.png" width="650" />
+  <img alt="home" src="./.github/Captura de tela_2021-11-29_19-44-51.png" width="650" />
+  <img alt="label" src="./.github/Captura de tela_2021-11-29_19-45-13.png" width="650" />
 </p>
 
 # Benefícios

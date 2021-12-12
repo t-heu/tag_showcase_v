@@ -1,13 +1,10 @@
 {
   "name": "geradordeetiquetasv",
   "version": "0.0.1",
-  "productName": "Gerador de Etiquetas V",
   "description": "Gerador de etiquetas para vitrine da loja V!",
-  "main": "src/main.js",
+  "main": "electron/main.js",
   "license": "MIT",
-  "author": {
-    "name": "t-heu"
-  },
+  "author": "Matheus Gomes <e-mail>",
   "keywords": [],
   "homepage": "./",
   "scripts": {
@@ -20,8 +17,8 @@
     "forge": {
       "packagerConfig": {
         "executableName": "geradordeetiquetasv",
-        "icon": "resources/icons/app_icon",
-        "ignore": ["docs", ".git", "README.md", "prettier.config.js", ".eslintrc.js"]
+        "icon": "build/app_icon",
+        "ignore": [".github", ".git", "README.md", "prettier.config.js", ".eslintrc.js"]
       },
       "makers": [
         {
@@ -34,7 +31,7 @@
           "name": "@electron-forge/maker-deb",
           "config": {
             "maintainer": "t-heu",
-            "icon": "resources/icons/app_icon.png"
+            "icon": "build/app_icon.png"
           }
         }
       ]
@@ -56,5 +53,15 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.1"
+  },
+  "build": {
+    "productName": "Gerador de Etiquetas V",
+    "linux": {
+      "category": "Office"
+    },
+    "directories": {
+      "buildResources": "build",
+      "output": "release"
+    }
   }
 }

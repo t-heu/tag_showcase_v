@@ -1,31 +1,40 @@
+/* eslint global-require: off */
+
 const {
   BrowserWindow,
   app,
-  dialog,
   globalShortcut,
   ipcMain,
+  nativeImage,
 } = require('electron');
 const ejse = require('ejs-electron');
 const path = require('path');
 
-const readXlsxFile = require('./helpers/readXlsxFile');
+const readXlsxFile = require('../src/helpers/readXlsxFile');
 
 let mainWindow;
-dialog.showErrorBox = (title, content) => {
-  console.log(`${title}\n${content}`);
-};
+const homePath = path.join(__dirname, '../src/views/home.ejs');
+const labelPath = path.join(__dirname, '../src/views/label.ejs');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
-if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
+if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
 function createWindow() {
+  const icon = nativeImage.createFromPath(
+    `${app.getAppPath()}/build/app_icon.png`,
+  );
+
+  if (app.dock) {
+    app.dock.setIcon(icon);
+  }
+
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     title: 'Gerador de Etiquetas V',
-    icon: path.join(__dirname, '../resources/icons/app_icon.png'),
+    icon,
     webPreferences: {
       enableRemoteModule: true,
       nodeIntegration: true,
@@ -51,7 +60,7 @@ function createWindow() {
   });
 
   ejse.data('css', '1');
-  mainWindow.loadFile(`${__dirname}/views/home.ejs`);
+  mainWindow.loadFile(homePath);
 }
 
 app.on('ready', createWindow);
@@ -61,13 +70,13 @@ ipcMain.on('data:add', (e, { arrayBuffer, ext }) => {
     const data = readXlsxFile(arrayBuffer, ext);
     ejse.data('css', '2');
     ejse.data('list', data);
-    mainWindow.loadFile(`${__dirname}/views/label.ejs`);
+    mainWindow.loadFile(labelPath);
   }
 });
 
 ipcMain.on('return:home', () => {
   ejse.data('css', '1');
-  mainWindow.loadFile(`${__dirname}/views/home.ejs`);
+  mainWindow.loadFile(homePath);
 });
 
 app.on('window-all-closed', () => {
