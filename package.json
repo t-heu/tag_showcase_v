@@ -10,15 +10,24 @@
   "scripts": {
     "start": "electron .",
     "package": "electron-forge package",
+    "publish": "electron-forge publish",
     "make": "electron-forge make",
-    "publish": "electron-forge publish"
+    "make:windows": "electron-forge make --platform win32",
+    "make:deb": "electron-forge make --platform linux --targets deb",
+    "make:mac": "electron-forge make --platform darwin"
   },
   "config": {
     "forge": {
       "packagerConfig": {
         "executableName": "geradordeetiquetasv",
         "icon": "build/app_icon",
-        "ignore": [".github", ".git", "README.md", "prettier.config.js", ".eslintrc.js"]
+        "ignore": [
+          ".github",
+          ".git",
+          "README.md",
+          "prettier.config.js",
+          ".eslintrc.js"
+        ]
       },
       "makers": [
         {

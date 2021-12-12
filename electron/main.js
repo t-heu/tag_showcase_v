@@ -31,9 +31,10 @@ function createWindow() {
   }
 
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    title: 'Gerador de Etiquetas V',
+    minWidth: 1000,
+    minHeight: 600,
+    // frame: false,
+    transparent: true,
     icon,
     webPreferences: {
       enableRemoteModule: true,
@@ -68,6 +69,7 @@ app.on('ready', createWindow);
 ipcMain.on('data:add', (e, { arrayBuffer, ext }) => {
   if (arrayBuffer && ext) {
     const data = readXlsxFile(arrayBuffer, ext);
+
     ejse.data('css', '2');
     ejse.data('list', data);
     mainWindow.loadFile(labelPath);
