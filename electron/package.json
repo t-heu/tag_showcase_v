@@ -1,0 +1,81 @@
+{
+  "name": "geradordeetiquetasv",
+  "version": "0.1.0",
+  "description": "Gerador de etiquetas para vitrine da loja V!",
+  "license": "MIT",
+  "author": "Matheus Gomes <e-mail>",
+  "homepage": "./",
+  "main": "index.js",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-updater": "^4.6.1"
+  },
+  "scripts": {
+    "start": "electron .",
+    "dev": "cross-env NODE_ENV=development electron index.js",
+    "build": "babel main.ts --extensions \".js,.ts\" --out-dir ./ --copy-files",
+    "package": "electron-forge package",
+    "publish": "electron-forge publish",
+    "make": "electron-forge make",
+    "make:windows": "electron-forge make --platform win32",
+    "make:deb": "electron-forge make --platform linux --targets deb",
+    "make:mac": "electron-forge make --platform darwin"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-typescript": "^7.16.5",
+    "@electron-forge/cli": "^6.0.0-beta.61",
+    "@electron-forge/maker-deb": "^6.0.0-beta.61",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
+    "cross-env": "^7.0.3",
+    "electron": "^16.0.4",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "executableName": "geradordeetiquetasv",
+        "icon": "assets/icon",
+        "ignore": [
+          ".github",
+          ".git",
+          "README.md",
+          "main.ts"
+        ]
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {
+            "maintainer": "t-heu",
+            "icon": "assets/icon.png"
+          }
+        }
+      ]
+    }
+  },
+  "build": {
+    "productName": "Gerador de Etiquetas V",
+    "files": [
+      "dist/"
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Office"
+    }
+  }
+}
