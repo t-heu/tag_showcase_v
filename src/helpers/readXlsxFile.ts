@@ -1,8 +1,9 @@
-const xlsx = require('xlsx');
+import xlsx from 'xlsx';
 
-const format_price_dot = require('./formatPriceDot');
+import format_price_dot from './formatPriceDot';
+import {IData} from '../dtos'
 
-function read_xlsx_file(file, ext) {
+function read_xlsx_file(file: any, ext: string): void | (void | IData)[] {
   const wb = xlsx.read(file, { type: 'buffer' });
   const wsname = wb.SheetNames[0];
   const ws = wb.Sheets[wsname];
@@ -10,7 +11,7 @@ function read_xlsx_file(file, ext) {
 
   if (data.length === 0) return alert('Arquivo não pode está vazio!');
 
-  return data.map(info => {
+  return data.map((info: any) => {
     const variation_list = {
       desc: info['Descrição'] || info.Mercadoria,
       cad_and_ref:
@@ -54,4 +55,4 @@ function read_xlsx_file(file, ext) {
   });
 }
 
-module.exports = read_xlsx_file;
+export default read_xlsx_file;

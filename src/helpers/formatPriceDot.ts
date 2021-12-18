@@ -1,4 +1,4 @@
-function format_price_dot(value, ext) {
+function format_price_dot(value: number, ext: string): number {
   const valor = String(value);
 
   if (!(valor.indexOf('.') !== -1) && ext === 'csv') {
@@ -12,4 +12,4 @@ function format_price_dot(value, ext) {
   return Number(valor);
 }
 
-module.exports = format_price_dot;
+export default format_price_dot;

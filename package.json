@@ -1,76 +1,56 @@
 {
   "name": "geradordeetiquetasv",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Gerador de etiquetas para vitrine da loja V!",
-  "main": "electron/main.js",
   "license": "MIT",
   "author": "Matheus Gomes <e-mail>",
-  "keywords": [],
   "homepage": "./",
-  "scripts": {
-    "start": "electron .",
-    "package": "electron-forge package",
-    "publish": "electron-forge publish",
-    "make": "electron-forge make",
-    "make:windows": "electron-forge make --platform win32",
-    "make:deb": "electron-forge make --platform linux --targets deb",
-    "make:mac": "electron-forge make --platform darwin"
-  },
-  "config": {
-    "forge": {
-      "packagerConfig": {
-        "executableName": "geradordeetiquetasv",
-        "icon": "build/app_icon",
-        "ignore": [
-          ".github",
-          ".git",
-          "README.md",
-          "prettier.config.js",
-          ".eslintrc.js"
-        ]
-      },
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "geradordeetiquetasv"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {
-            "maintainer": "t-heu",
-            "icon": "build/app_icon.png"
-          }
-        }
-      ]
-    }
-  },
+  "main": "build",
   "dependencies": {
-    "ejs-electron": "^2.1.1",
-    "electron-squirrel-startup": "^1.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "react-router-dom": "^6.1.1",
+    "react-scripts": "5.0.0",
+    "styled-components": "^5.3.3",
+    "typescript": "^4.5.4",
+    "url": "^0.11.0",
+    "web-vitals": "^2.1.2",
     "xlsx": "^0.17.4"
   },
-  "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.61",
-    "@electron-forge/maker-deb": "^6.0.0-beta.61",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
-    "electron": "^16.0.2",
-    "eslint": "^7.8.1",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.4.1"
+  "scripts": {
+    "start": "BROWSER=none react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "build": {
-    "productName": "Gerador de Etiquetas V",
-    "linux": {
-      "category": "Office"
-    },
-    "directories": {
-      "buildResources": "build",
-      "output": "release"
-    }
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.14",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "@types/styled-components": "^5.1.18",
+    "cross-env": "^7.0.3"
   }
 }
