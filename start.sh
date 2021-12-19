@@ -1,16 +1,26 @@
 #!/bin/bash
-echo "Selecione uma opção:"
-echo "1 - dev"
-echo "2 - start"
+echo "Select an option to run:"
+echo "1 - Executar dev?"
+echo "2 - Gerar build?"
 read v1
-if [ $v1 = "1" ];
-  then
+case $v1 in
+  "1")
     yarn start
     cd electron && yarn dev
     echo "command $v1 successfully executed!"
-  else
+    ;;
+  "2")
+    DIR="/electron/build/"
+    if [ -d "$DIR" ]; then
+      rm -r electron/build
+    fi
     yarn build
-    rm -r electron/build && cp -r build electron ||  cp -r build electron
+    cp -r build electron
+    rm -r build
     cd electron && yarn build && yarn start
-    echo "command $v1 successfully executed!"
-fi
+    echo 'build successfully generated, command executed: "$v1"'
+    ;;
+  $v1)
+    echo "Error! Not found command"
+    ;;
+esac

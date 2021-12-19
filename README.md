@@ -4,8 +4,7 @@
 
 # Screenshot
 <p align="center">
-  <img alt="home" src="./.github/Captura de tela_2021-11-29_19-44-51.png" width="650" />
-  <img alt="label" src="./.github/Captura de tela_2021-11-29_19-45-13.png" width="650" />
+  <img alt="home" src="./.github/mockup.png" width="650" />
 </p>
 
 # Benefícios
@@ -18,8 +17,27 @@
 - Caso de edição no arquivo CSV salve ele com formato da planilha que abriu (ex: abrir CSV em libreoffice vou salvar em .ODS/LibreOffice).
 - Caso uma impressão de um arquivo PDF fique um pouco menor procure marca a caixinha de "imprimir tamanho real".
 
-# Como executar
+# Instalação
+- at the root
 ```shell
-npm i
-npm start
+npm i or yarn
+```
+- at the root of the `/electron` folder
+```shell
+npm i or yarn
+```
+
+# Como excutar
+- run electron build or dev
+```shell
+sh start.sh
+```
+- build the program based on the system you are on:
+- run in `/electron` folder
+```shell
+npm run make or yarn make
+```
+- run web only
+```shell
+npm run start or yarn start
 ```

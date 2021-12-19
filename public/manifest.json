@@ -1,6 +1,7 @@
 {
   "short_name": "Gerador de Etiquetas V",
   "name": "Gerador de Etiquetas V",
+  "description": "Gerador de Etiquetas de preço para vitrine.",
   "icons": [
    {
       "src": "icons/maskable_icon_x48.png",
