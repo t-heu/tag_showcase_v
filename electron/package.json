@@ -5,14 +5,14 @@
   "license": "MIT",
   "author": "Matheus Gomes <e-mail>",
   "homepage": "./",
-  "main": "index.js",
+  "main": "main.js",
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
     "electron-updater": "^4.6.1"
   },
   "scripts": {
     "start": "electron .",
-    "dev": "cross-env NODE_ENV=development electron index.js",
+    "dev": "cross-env NODE_ENV=development electron main.js",
     "build": "babel main.ts --extensions \".js,.ts\" --out-dir ./ --copy-files",
     "package": "electron-forge package",
     "publish": "electron-forge publish",
