@@ -2,7 +2,7 @@ import styled, {createGlobalStyle} from "styled-components"
 
 export const Style = createGlobalStyle`
   html, body {
-    height: 100%;
+    height: 100% !important;
   }
   body {
     background-color: #2c5396;
