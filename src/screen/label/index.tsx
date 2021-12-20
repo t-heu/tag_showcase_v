@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { FiArrowLeft, FiPrinter } from 'react-icons/fi'
 import {useLocation, useNavigate} from 'react-router-dom'
 
-import {Style} from  './styles'
+import {Header, ButtonHeader, Container} from  './styles'
 import {IData} from '../../dtos'
 import Tag from '../../components/tag'
 import readXlsxFile from '../../helpers/readXlsxFile'
@@ -21,19 +21,18 @@ const Label = () => {
 
   return (
     <React.Fragment>
-      <Style />
-      <div className="header">
-        <button onClick={() =>  navigate('/')} title="voltar" className="header__backhome">
+      <Header>
+        <ButtonHeader onClick={() =>  navigate('/')} title="voltar">
           <FiArrowLeft color={"#333"} size={30} />
-        </button>
-        <button onClick={() => window.print()} title="imprimir" className="header__print">
+        </ButtonHeader>
+        <ButtonHeader onClick={() => window.print()} title="imprimir">
           <FiPrinter color={"#333"} size={30} />
-        </button>
-      </div>
+        </ButtonHeader>
+      </Header>
 
-      <article className="container">
-        {data && data.length > 0 ? data.map((dataObj: IData, i: number) => (<Tag key={i} data={dataObj} />)) : <p>Empty :C</p>}
-      </article>
+      <Container>
+        {data && data.length > 0 ? data.map((dataObj: IData, i: number) => (<Tag key={i} data={dataObj} />)) : null}
+      </Container>
     </React.Fragment>
   )
 }
