@@ -23,10 +23,10 @@ const Label = () => {
     <React.Fragment>
       <Header>
         <ButtonHeader onClick={() =>  navigate('/')} title="voltar">
-          <FiArrowLeft color={"#333"} size={30} />
+          <FiArrowLeft size={30} />
         </ButtonHeader>
         <ButtonHeader onClick={() => window.print()} title="imprimir">
-          <FiPrinter color={"#333"} size={30} />
+          <FiPrinter size={30} />
         </ButtonHeader>
       </Header>
 

@@ -25,7 +25,7 @@ export const Form = styled.form`
   justify-content: center;
   align-items: center;
   text-align: left;
-  background: #fff;
+  background: var(--color-white);;
   padding: 19px;
   position: relative;
   cursor: pointer;
@@ -59,7 +59,7 @@ export const Button = styled.a`
   justify-content: center;
   align-items: center;
   background: var(--color-principal2);
-  color: #1C1C1C;
+  color: var(--color-principal3);
   border-radius: 2px;
   margin-right: 8px;
   font-size: inherit;
@@ -67,14 +67,14 @@ export const Button = styled.a`
 
   :hover {
     background: var(--color-principal);
-    color: #fff;
+    color: var(--color-white);
   }
 `;
 export const TextInput = styled.span`
   overflow-x: scroll;
   width: 100%;
   font-size: 16px;
-  color: #000;
+  color: var(--color-principal3);
   white-space: nowrap;
   cursor: pointer;
   -ms-overflow-style: none;  /* IE and Edge */
@@ -97,6 +97,6 @@ export const Footer = styled.footer`
   text-align: center;
 `;
 export const Text = styled.small`
-  color: #e5e5e5;
+  color: var(--color-principal4);
   font-size: 14px;
 `;

@@ -1,11 +1,12 @@
 import {createGlobalStyle} from "styled-components"
 
 export const Style = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
-
   :root {
     --color-principal: #2c5396;
     --color-principal2: #fdd63a;
+    --color-principal3: #333333;
+    --color-white: #fff;
+    --color-principal4: #e5e5e5;
   }
 
   @page {
@@ -26,7 +27,7 @@ export const Style = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     /*font-family: 'Calibri', sans-serif;*/
-    font: 400 16px Calibri, Roboto, Arial, sans-serif;
+    font: 400 16px Roboto, Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items:center;

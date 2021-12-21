@@ -5,6 +5,7 @@ export const Header = styled.header`
   padding: .5em;
   display: flex;
   justify-content: space-around;
+  color: var(--color-principal3);
     
   @media print {
     display: none;
@@ -13,10 +14,9 @@ export const Header = styled.header`
 export const ButtonHeader = styled.button`
   cursor: pointer;
   border: none;
-  background-color: #fff;
+  background: none;
 `;
-export const Container = styled.header`
-  background-color: #fff;
+export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 

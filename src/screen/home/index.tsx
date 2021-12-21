@@ -66,10 +66,10 @@ function Screen() {
               href="/ExModelo.xlsx"
               download
             >
-              <FiDownload />
+              <FiDownload size={18} />
             </Button>
             <Button onClick={handleSubmit} title="Enviar">
-              <FiSend />
+              <FiSend size={18} />
             </Button>
           </BoxButtons>
 
