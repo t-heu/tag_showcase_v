@@ -5,7 +5,7 @@ export const Style = createGlobalStyle`
     height: 100% !important;
   }
   body {
-    background-color: #2c5396;
+    background-color: var(--color-principal);
     justify-content: center;
     padding: 0 32px;
   }
@@ -58,7 +58,7 @@ export const Button = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fdd63a;
+  background: var(--color-principal2);
   color: #1C1C1C;
   border-radius: 2px;
   margin-right: 8px;
@@ -66,13 +66,14 @@ export const Button = styled.a`
   line-height: inherit;
 
   :hover {
-    background: #2c5396;
+    background: var(--color-principal);
     color: #fff;
   }
 `;
 export const TextInput = styled.span`
   overflow-x: scroll;
   width: 100%;
+  font-size: 16px;
   color: #000;
   white-space: nowrap;
   cursor: pointer;
@@ -86,10 +87,16 @@ export const TextInput = styled.span`
 `;
 export const Header = styled.header`
   text-align: center;
+  width: 450px;
+
+  @media(max-width: 500px) {
+    width: 100%;
+  }
 `;
 export const Footer = styled.footer`
   text-align: center;
 `;
 export const Text = styled.small`
   color: #e5e5e5;
+  font-size: 14px;
 `;
