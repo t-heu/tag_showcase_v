@@ -10,7 +10,7 @@ export const Description = styled.p`
   justify-content: center;
   flex-direction: column;
   height: 35px;
-  font-size: 12px;
+  font-size: 11px;
   word-wrap: break-word;
   text-align: center;
 `;
@@ -19,7 +19,7 @@ export const Cad = styled.p`
   justify-content: center;
   flex-direction: column;
   height: 22px;
-  font-size: 13px;
+  font-size: 12px;
   text-align: center;
 `;
 export const Mark = styled.p`
@@ -39,7 +39,7 @@ export const Price = styled.p`
   justify-content: center;
   flex-direction: column;
   height: 44px;
-  font-size: 38px;
+  font-size: 37px;
   font-weight: bold;
   text-align: center;
 `;

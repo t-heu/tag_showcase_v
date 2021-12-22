@@ -19,11 +19,10 @@ export const Main = styled.div`
   }
 `;
 export const Form = styled.form`
+  display: flex;
+  align-items: center;
   margin-top: 1em;
   margin-bottom: 1em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: left;
   background: var(--color-white);;
   padding: 19px;
@@ -71,18 +70,23 @@ export const Button = styled.a`
   }
 `;
 export const TextInput = styled.span`
-  overflow-x: scroll;
-  width: 100%;
+  width: 310px;
+  text-align: left;
   font-size: 16px;
   color: var(--color-principal3);
   white-space: nowrap;
   cursor: pointer;
+  overflow-x: scroll;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   
   /* Hide scrollbar for Chrome, Safari and Opera */
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  @media(max-width: 500px) {
+    width: 280px;
   }
 `;
 export const Header = styled.header`
@@ -99,4 +103,19 @@ export const Footer = styled.footer`
 export const Text = styled.small`
   color: var(--color-principal4);
   font-size: 14px;
+`;
+export const Modal = styled.div`
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 450px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  @media(max-width: 500px) {
+    width: 100%;
+  }
 `;

@@ -1,14 +1,32 @@
-import React, {useState} from 'react'
-import { FiDownload, FiSend } from 'react-icons/fi'
+import React, {useState, useEffect} from 'react'
+import { FiDownload, FiSend, FiUpload } from 'react-icons/fi'
 import {useNavigate} from 'react-router-dom'
 
-import {Footer, Text, Style, Header, Form, TextInput, BoxButtons, Button, Input, Main} from './styles'
+import * as serviceWorker from '../../serviceWorkerRegistration';
+import {Footer, Text, Style, Header, Form, TextInput, BoxButtons, Modal, Button, Input, Main} from './styles'
 
 function Screen() {
   const [buffer, setBuffer] = useState('');
   const [ext, setExt] = useState<string | void>('');
   const [nameFile, setNameFile] = useState('Clique aqui para enviar o arquivo.');
-  const navigate = useNavigate()
+  const [showReload, setShowReload] = useState(false);
+  const [waitingWorker, setWaitingWorker] = useState<ServiceWorker | null>(null);
+  const navigate = useNavigate();
+
+  const onSWUpdate = (registration: ServiceWorkerRegistration) => {
+    setShowReload(true);
+    setWaitingWorker(registration.waiting);
+  };
+
+  useEffect(() => {
+    serviceWorker.register({ onUpdate: onSWUpdate });
+  }, []);
+
+  const reloadPage = () => {
+    waitingWorker?.postMessage({ type: 'SKIP_WAITING' });
+    setShowReload(false);
+    window.location.reload();
+  };
 
   function readFileDataAsBase64(e: any) {
     const file = e.target.files[0];
@@ -50,6 +68,14 @@ function Screen() {
     <>
       <Style />
       <Header>
+        {showReload ? 
+          (<Modal>
+            <Text style={{marginBottom: '10px'}}>Nova atualização disponível <i>(talvez ela seja importante)</i></Text>
+              <Button title="Atualizar" onClick={reloadPage}>
+              <FiUpload size={18} />
+            </Button>
+          </Modal>)
+         : null}
         <Text>
           <b>OBS: </b>O envio dos arquivos pode ser feita somente em: <b>.CSV</b>,{' '}
           <b>.XLSX</b>, <b>.XLS</b>, <b>.ODS</b>.
