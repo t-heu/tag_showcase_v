@@ -10,7 +10,7 @@ export const Style = createGlobalStyle`
     padding: 0 32px;
   }
 `;
-export const Main = styled.div`
+export const Main = styled.main`
   display: block; 
   width: 450px;
 
