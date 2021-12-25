@@ -75,10 +75,9 @@ export const TextInput = styled.span`
   white-space: nowrap;
   cursor: pointer;
   overflow-x: scroll;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   
-  /* Hide scrollbar for Chrome, Safari and Opera */
   ::-webkit-scrollbar {
     display: none;
   }
@@ -88,11 +87,11 @@ export const TextInput = styled.span`
   }
 `;
 export const Header = styled.header`
-  margin-top: 1em;
+  margin-bottom: 1em;
   text-align: center;
 `;
 export const Footer = styled.footer`
-  margin-bottom: 1em;
+  margin-top: 1em;
   text-align: center;
 `;
 export const Text = styled.small`
