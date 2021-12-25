@@ -4,6 +4,10 @@ export const Style = createGlobalStyle`
   html, body {
     height: 100% !important;
   }
+  #root {
+    width: 100%;
+    display: contents;
+  }
   body {
     background-color: var(--color-principal);
     justify-content: center;
@@ -22,7 +26,7 @@ export const Form = styled.form`
   display: flex;
   align-items: center;
   text-align: left;
-  background: var(--color-white);;
+  background: var(--color-white);
   padding: 19px;
   position: relative;
   cursor: pointer;
@@ -68,7 +72,7 @@ export const Button = styled.a`
   }
 `;
 export const TextInput = styled.span`
-  width: 310px;
+  width: 100%;
   text-align: left;
   font-size: 16px;
   color: var(--color-principal3);
@@ -80,10 +84,6 @@ export const TextInput = styled.span`
   
   ::-webkit-scrollbar {
     display: none;
-  }
-
-  @media(max-width: 500px) {
-    width: 280px;
   }
 `;
 export const Header = styled.header`
