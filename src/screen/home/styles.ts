@@ -21,8 +21,6 @@ export const Main = styled.main`
 export const Form = styled.form`
   display: flex;
   align-items: center;
-  margin-top: 1em;
-  margin-bottom: 1em;
   text-align: left;
   background: var(--color-white);;
   padding: 19px;
@@ -90,14 +88,11 @@ export const TextInput = styled.span`
   }
 `;
 export const Header = styled.header`
+  margin-top: 1em;
   text-align: center;
-  width: 450px;
-
-  @media(max-width: 500px) {
-    width: 100%;
-  }
 `;
 export const Footer = styled.footer`
+  margin-bottom: 1em;
   text-align: center;
 `;
 export const Text = styled.small`
