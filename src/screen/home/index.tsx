@@ -7,7 +7,6 @@ import {Footer, Text, Style, Header, Form, TextInput, BoxButtons, Modal, Button,
 
 function Screen() {
   const [buffer, setBuffer] = useState('');
-  const [ext, setExt] = useState<string | void>('');
   const [nameFile, setNameFile] = useState('Clique aqui para enviar o arquivo.');
   const [showReload, setShowReload] = useState(false);
   const [waitingWorker, setWaitingWorker] = useState<ServiceWorker | null>(null);
@@ -31,7 +30,6 @@ function Screen() {
   function readFileDataAsBase64(e: any) {
     const file = e.target.files[0];
     
-    setExt(file.name.split('.')[1])
     const extension = ['csv', 'xlsx', 'xls', 'ods'];
 
     if (!extension.includes(file.name.split('.')[1])) {
@@ -61,7 +59,7 @@ function Screen() {
       return;
     }
     
-    navigate(`/label`, {state: {buffer, ext}})
+    navigate(`/label`, {state: {buffer}})
   }
 
   return (

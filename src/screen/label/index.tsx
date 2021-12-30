@@ -13,11 +13,11 @@ const Label = () => {
   const {state} = useLocation()
 
   useEffect(() => {
-    const result = readFile(state.buffer, state.ext)
+    const result = readFile(state.buffer)
     if (result) {
       setData(result as IData[])
     }
-  }, [state.buffer, state.ext])
+  }, [state.buffer])
 
   return (
     <React.Fragment>
