@@ -5,7 +5,7 @@ import {useLocation, useNavigate} from 'react-router-dom'
 import {Header, ButtonHeader, Container} from  './styles'
 import {IData} from '../../dtos'
 import Tag from '../../components/tag'
-import readXlsxFile from '../../helpers/readXlsxFile'
+import readFile from '../../helpers/readFile'
 
 const Label = () => {
   const [data, setData] = useState<IData[]>([])
@@ -13,7 +13,7 @@ const Label = () => {
   const {state} = useLocation()
 
   useEffect(() => {
-    const result = readXlsxFile(state.buffer, state.ext)
+    const result = readFile(state.buffer, state.ext)
     if (result) {
       setData(result as IData[])
     }

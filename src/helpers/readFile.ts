@@ -1,9 +1,8 @@
 import xlsx from 'xlsx';
 
-import format_price_dot from './formatPriceDot';
 import {IData} from '../dtos'
 
-function read_xlsx_file(file: any, ext: string): void | (void | IData)[] {
+function read_file(file: any, ext: string): void | (void | IData)[] {
   const wb = xlsx.read(file, { type: 'buffer' });
   const wsname = wb.SheetNames[0];
   const ws = wb.Sheets[wsname];
@@ -46,13 +45,10 @@ function read_xlsx_file(file: any, ext: string): void | (void | IData)[] {
       desc: variation_list.desc.toUpperCase().trim(),
       mark: variation_list.mark.toUpperCase().trim(),
       cad: cad_or_ref.trim(),
-      price: format_price_dot(
-        Number(variation_list.jogo * variation_list.price),
-        ext,
-      ),
+      price: typeof variation_list.price === 'string' && variation_list.price.indexOf(',') != -1 ? Number(variation_list.jogo * variation_list.price.replace(',', '.')) : Number(variation_list.jogo * variation_list.price),
       barcode: cad_or_ref.split('/')[0].trim(),
     };
   });
 }
 
-export default read_xlsx_file;
+export default read_file;
