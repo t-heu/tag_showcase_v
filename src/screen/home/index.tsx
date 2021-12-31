@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { FiDownload, FiSend, FiUpload } from 'react-icons/fi'
 import {useNavigate} from 'react-router-dom'
 
+import readFile from '../../helpers/readFile'
 import * as serviceWorker from '../../serviceWorkerRegistration';
 import {Footer, Text, Style, Header, Form, TextInput, BoxButtons, Modal, Button, Input, Main} from './styles'
 
@@ -30,12 +31,6 @@ function Screen() {
   function readFileDataAsBase64(e: any) {
     const file = e.target.files[0];
     
-    const extension = ['csv', 'xlsx', 'xls', 'ods'];
-
-    if (!extension.includes(file.name.split('.')[1])) {
-      alert('Arquivo com formato inválido!');
-    }
-
     setNameFile(file.name)
 
     return new Promise((resolve, reject) => {
@@ -55,11 +50,24 @@ function Screen() {
 
   function handleSubmit() {
     if (!buffer) {
-      alert('Arquivo vazio!');
+      alert('Envie um arquivo!');
       return;
     }
     
-    navigate(`/label`, {state: {buffer}})
+    const extension = ['csv', 'xlsx', 'xls', 'ods'];
+
+    if (!extension.includes(nameFile.split('.')[1])) {
+      alert('Arquivo com formato inválido!');
+      return;
+    }
+    
+    const data = readFile(buffer)
+    if (typeof data === "string") {
+      alert(data);
+      return;
+    }
+    
+    navigate(`/label`, {state: {data}})
   }
 
   return (

@@ -2,13 +2,15 @@ import xlsx from 'xlsx';
 
 import {IData} from '../dtos'
 
-function read_file(file: any): void | (void | IData)[] {
+function read_file(file: any): string | (string | IData)[] {
   const wb = xlsx.read(file, { type: 'buffer', raw: true });
   const wsname = wb.SheetNames[0];
   const ws = wb.Sheets[wsname];
   const data = xlsx.utils.sheet_to_json(ws);
 
-  if (data.length === 0) return alert('Arquivo não pode está vazio!');
+  if (data.length === 0) {
+    return 'Arquivo não pode está vazio!';
+  }
 
   return data.map((info: any) => {
     const variation_list = {
@@ -23,14 +25,17 @@ function read_file(file: any): void | (void | IData)[] {
       ref: info['Referência'] || info['ReferÃªncia'] || '',
     };
 
-    if (!variation_list.desc)
-      return alert('Arquivo enviado faltando campo "Descrição"!');
+    if (!variation_list.desc) {
+      return 'Arquivo enviado faltando campo "Descrição"!';
+    }
 
-    if (!variation_list.cad_and_ref)
-      return alert('Arquivo enviado faltando campo "Ref/CAD"!');
+    if (!variation_list.cad_and_ref) {
+      return 'Arquivo enviado faltando campo "Ref/CAD"!';
+    }
 
-    if (!variation_list.price)
-      return alert('Arquivo enviado faltando campo "Preço"!');
+    if (!variation_list.price) {
+      return 'Arquivo enviado faltando campo "Preço"!';
+    }
 
     const join_cad_ref =
       typeof variation_list.cad_and_ref === 'string'
