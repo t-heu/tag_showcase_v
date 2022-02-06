@@ -1,0 +1,42 @@
+<%- include('head') %>
+
+<% if(error !=  '') { %>
+  <div id="toast">
+    <div class="toast__container-1">
+      <i class="fas fa-times-circle"></i>
+    </div>
+    <div class="toast__container-2">
+      <p>Error</p>
+      <p><%= error %></p>
+    </div>
+    <button class="toast__button--close">
+      &times;
+    </button>
+  </div>
+<% } %>
+
+<% if(notice_updated_msg !=  '') { %>
+  <header class="header">
+    <small class="header__text"><b>ATUALIZAÇÃO: </b><%= notice_updated_msg %></small>
+  </header>
+<% } %>
+
+<main class="container">
+  <form action="/" method="post" enctype="multipart/form-data">
+    <button title="Enviar" type="submit" class="file-input__button">ENVIAR</button>
+    
+    <div class="file-input__form">
+      <input name="file" type='file' multiple>
+      <span class="file-input__text" data-js-label>Arraste ou clique para enviar.</span>
+    </div>
+  </form>
+  
+  <p class="file-input__text">Baixe o modelo <a title="baixar modelo" class="link" href="/ExModelo.xlsx" download>Clicando aqui</a>
+  </p>
+</main>
+
+<footer class="footer">
+  <small class="footer__text"><b><%= '</>' %></b> with by <b>Matheus Batista</b></small>
+</footer>
+
+<%- include('footer') %>

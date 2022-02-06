@@ -1,0 +1,41 @@
+{
+  "name": "tag_generator",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "license": "MIT",
+  "scripts": {
+    "commit": "cz",
+    "dev": "clear && nodemon src/server.js",
+    "test": "NODE_ENV=test jest",
+    "start": "node ."
+  },
+  "dependencies": {
+    "@sentry/node": "^6.16.1",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-session": "^1.17.2",
+    "helmet": "^4.6.0",
+    "multer": "^1.4.3",
+    "xlsx": "^0.17.2"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.13",
+    "prettier": "^2.4.1",
+    "supertest": "^6.1.6"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

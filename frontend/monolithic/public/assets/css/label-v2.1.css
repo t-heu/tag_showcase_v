@@ -1,0 +1,108 @@
+@page {
+  margin: 10mm auto 13.8mm auto; /*0.45in auto;*/
+}
+* {
+  margin: 0;
+  outline: 0;
+}
+a {
+  text-decoration: none;
+}
+html, body {
+  height: auto;
+}
+@font-face {
+  font-family: 'ccode39';
+  src: url('/assets/fonts/ConnectCode39.ttf');
+  font-weight: normal;
+  font-style: normal;
+}/*
+@font-face {
+  font-family: 'Roboto';
+  src: 
+    url('/assets/fonts/Roboto/Roboto-Regular.ttf') format('ttf'),
+    url('/assets/fonts/Roboto/Roboto-Bold.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}*/
+body {
+  -webkit-print-color-adjust: exact !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font: 400 14px Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+.header {
+  width: 50%;
+  padding: .5em;
+  display: flex;
+  justify-content: space-around;
+}
+.header__backhome, .header__print {
+  cursor: pointer;
+  color: #333;
+}
+@media print {
+  .header {
+    display: none;
+  }
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.container {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media only screen and (max-width: 650px) {
+  .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.tag {
+  width: 314px;
+  border: solid 1px #000;
+  margin: 3px 2px;
+}
+.tag__description, .tag__cad, .tag__mark, .tag__price {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.tag__description {
+  height: 35px;
+  font-size: 11px;
+  word-wrap: break-word;
+  text-align: center;
+}
+.tag__mark {
+  background-color: #000000;
+  height: 25px;
+  font-size: 13px;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  color: #eeece1;
+  font-weight: bold;
+}
+.tag__price {
+  height: 44px;
+  font-size: 37px;
+  font-weight: bold;
+  text-align: center;
+}
+.tag__codebar {
+  font-family: 'ccode39';
+  font-size: 19px;
+  height: 38px;
+  width: 314px;
+  overflow-y: hidden;
+  text-align: center;
+}
+.tag__cad {
+  height: 22px;
+  font-size: 12px;
+  text-align: center;
+}
