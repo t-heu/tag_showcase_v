@@ -12,9 +12,7 @@
 - Cálculo automático de preço quando a peça for jogo.
 - Padronização de modelo fixo, sem ter problemas de desconfiguração do modelo como por exemplo: largura maior ou menor, fontes, borda ou cor.
 
-# Observações/Possíveis problemas
-- Na hora de imprimir observe nas configurações da impressão se a impressão tá configurado em A4.
-- Caso de edição no arquivo CSV salve ele com formato da planilha que abriu (ex: abrir CSV em libreoffice vou salvar em .ODS/LibreOffice).
+# Observações
 - Caso uma impressão de um arquivo PDF fique um pouco menor procure marca a caixinha de "imprimir tamanho real".
 
 # Instalação
