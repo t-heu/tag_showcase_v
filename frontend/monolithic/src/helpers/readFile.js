@@ -10,43 +10,42 @@ function read_file(file) {
 
   if (data.length === 0) throw new AppError('Arquivo não pode está vazio!');
   
-  return data.map(info => {
-    const variation_list = {
-      desc: info['Descrição'] || info.Mercadoria,
-      cad_and_ref:
-        info['Ref/CAD'] ||
-        info['Ref. Cód. Original/CAD'] ||
-        info['Ref. CÃ³d. Original/CAD'],
-      price: info['Preço'] || info['Preço Atual'] || info['PreÃ§o Atual'] || info['Preço de Venda'],
-      mark: info.Marca || '',
-      jogo: info.Jogo || 1,
-      ref: info['Referência'] || info['ReferÃªncia'] || '',
+  return data.map(products => {
+    const { cad, desc, price, mark, ref, jogo } = {
+      desc: products['Descrição'] || products['Desc.'],
+      cad: products['Ref/CAD'] || products['Ref. Cód. Original/CAD'] || products['Ref. CÃ³d. Original/CAD'] || products['CAD'],
+      price: products['Preço'] || products['Preço Atual'] || products['PreÃ§o Atual'] || products['Preço de Venda'],
+      mark: products.Marca || '',
+      jogo: products.Jogo || 1,
+      ref: products['Referência'] || products['ReferÃªncia'] || products['Ref'] || '',
     };
 
-    if (!variation_list.desc)
+    if (!desc)
       throw new AppError('Arquivo enviado faltando campo "Descrição"!');
 
-    if (!variation_list.cad_and_ref)
-      throw new AppError('Arquivo enviado faltando campo "Ref/CAD"!');
+    if (!cad && !ref)
+      throw new AppError('Arquivo enviado faltando campo "Ref ou CAD"!');
 
-    if (!variation_list.price)
+    if (!price)
       throw new AppError('Arquivo enviado faltando campo "Preço"!');
 
-    const join_cad_ref =
-      typeof variation_list.cad_and_ref === 'string'
-        ? `${variation_list.cad_and_ref} / ${variation_list.ref}`
-        : variation_list.ref;
 
-    const cad_or_ref = `${
-      variation_list.ref ? join_cad_ref : variation_list.cad_and_ref
-    }`;
+    function filterCodes() {
+      if (cad && ref) {
+        return  `${cad} / ${ref}`;
+      } else if (cad) {
+        return cad
+      } else {
+        return ref
+      }
+    }
     
     return {
-      desc: String(variation_list.desc).toUpperCase().trim(),
-      mark: String(variation_list.mark).toUpperCase().trim(),
-      cad: cad_or_ref.trim(),
-      price: String(variation_list.price).indexOf(',') !== -1 ? Number(variation_list.jogo * variation_list.price.replace(',', '.')) : Number(variation_list.jogo * variation_list.price),
-      barcode: cad_or_ref.split('/')[0].trim(),
+      desc: String(desc).toUpperCase().trim(),
+      mark: String(mark).toUpperCase().trim(),
+      cad: filterCodes().trim(),
+      price: String(price).indexOf(',') !== -1 ? Number(jogo * price.replace(',', '.')) : Number(jogo * price),
+      barcode: filterCodes().split('/')[0].trim()
     };
   });
 }

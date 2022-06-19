@@ -60,7 +60,7 @@ tr {
   background-image: url('/assets/back_hubcap.png');
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 50% 100%;
+  background-size: 45% 100%;
   z-index: -99;
   position: absolute;
   left: 0;

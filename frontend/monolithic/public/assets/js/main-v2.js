@@ -30,6 +30,7 @@ function customInput(el) {
   };
 }
 customInput(inputs[0]);
+
 /*
 async function aa() {
   // Check if site's storage has been marked as persistent

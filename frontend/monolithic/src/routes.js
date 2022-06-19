@@ -8,7 +8,7 @@ const router = Router();
 const upload = multer();
 
 router.get('/', (request, response) => response.render('home', { css: '1', notice_updated_msg: process.env.NOTICE_UPDATED_MSG }));
-router.post('/hubcap', createHubcapTableController.store);
+router.post('/hubcap', upload.array('file', 1000), createHubcapTableController.store);
 router.post('/', upload.array('file', 1000), createLabelController.store);
 router.use('*', (req, res, next) => res.redirect('/'));
 

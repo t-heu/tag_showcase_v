@@ -22,6 +22,9 @@
 <% } %>
 
 <main class="container">
+  <header class="header">
+    <small class="header__text black"><b>GERAR ETIQUETAS</b></small>
+  </header>
   <form action="/" method="post" enctype="multipart/form-data">
     <button title="Enviar" type="submit" class="file-input__button">ENVIAR</button>
     
@@ -31,8 +34,19 @@
     </div>
   </form>
   
-  <p class="file-input__text">Baixe o modelo <a title="baixar modelo" class="link" href="/ExModelo.xlsx" download>Clicando aqui</a>
-  </p>
+  <!--p class="file-input__text">Baixe o modelo <a title="baixar modelo" class="link" href="/ExModelo.xlsx" download>Clicando aqui</a></p>
+  -->
+  <header class="header">
+    <small class="header__text black"><b>GERAR TABELA DE CALOTAS</b></small>
+  </header>
+  <form action="/hubcap" method="post" enctype="multipart/form-data">
+    <button title="Enviar" type="submit" class="file-input__button">ENVIAR</button>
+    
+    <div class="file-input__form">
+      <input name="file" type='file' multiple>
+      <span class="file-input__text" data-js-label>Arraste ou clique para enviar.</span>
+    </div>
+  </form>
 </main>
 
 <footer class="footer">

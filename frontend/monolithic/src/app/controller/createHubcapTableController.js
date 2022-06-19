@@ -18,26 +18,26 @@ module.exports = {
       }
       
       const data = readFile(file.buffer);
-
-      data.map((info, index) => {
+     
+      data.map((product, index) => {
         if ((index + 1) > 84) return;
 
-        data.push({
+        arr_data.push({
           id: (index + 1),
-          ref: info.ref,
-          price: info.price
+          ref: product.cad,
+          price: product.price * 4
         });
       });
 
       for (let i = (data.length + 1); i <= 84; i++) {
-        data.push({
+        arr_data.push({
           id: i,
           ref: "",
           price: ""
         });
       }
     });
-
+    
     const table1 = arr_data.slice(0,28);
     const table2 = arr_data.slice(28,56);
     const table3 = arr_data.slice(56,84);
