@@ -1,0 +1,100 @@
+@page {
+  size: A4;
+  margin: 0;
+  -webkit-print-color-adjust: exact;
+}
+* {
+  margin: 0;
+  outline: 0;
+}
+a {
+  text-decoration: none;
+}
+html, body {
+  height: auto;
+}
+@font-face {
+  font-family: 'ccode39';
+  src: url('/assets/fonts/ConnectCode39.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font: 400 14px Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  display: grid;
+}
+td, th {
+  border: 1px solid #000;
+  text-align: center;
+  padding: 4px;
+  background: transparent;
+  font-size: 12px;
+  font-weight: normal;
+}
+tr {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.header {
+  margin-top: 2em;
+  width: 50%;
+  padding: .5em;
+  display: flex;
+  justify-content: space-around;
+}
+.header__backhome, .header__print {
+  cursor: pointer;
+  color: #fff;
+}
+.foreground {
+  background-image: url('/assets/back_hubcap.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 100%;
+  z-index: -99;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-print-color-adjust: exact;
+}
+@media print {
+  .header {
+    display: none;
+  }
+  .foreground {
+    background-size: 100% 100%;
+  }
+  .container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .tables {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.title {
+  margin: 5em 0 1em 0;
+  font-weight: 400;
+  text-align: center;
+  font-size: 20px;
+  width: 100%;
+}
+.tables {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}

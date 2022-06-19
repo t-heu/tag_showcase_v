@@ -23,8 +23,10 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <% if(css ===  '1') { %>
     <link rel="stylesheet" href="/assets/css/home-v1.1.css" type="text/css" media="screen">
-  <% } else { %>
+    <% } else if (css === "2") { %>
     <link rel="stylesheet" href="/assets/css/label-v2.1.css" type="text/css" media="all">
+    <% } else { %>
+    <link rel="stylesheet" href="/assets/css/hubcap_table-v1.css" type="text/css" media="all">
   <% } %>
   <%- include('google-analytics') %>
 </head>

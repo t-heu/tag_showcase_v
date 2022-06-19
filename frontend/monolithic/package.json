@@ -7,7 +7,8 @@
     "commit": "cz",
     "dev": "clear && nodemon src/server.js",
     "test": "NODE_ENV=test jest",
-    "start": "node ."
+    "start": "node .",
+    "sass:generate": "sass --watch ./public/assets/scss:./public/assets/css"
   },
   "dependencies": {
     "@sentry/node": "^6.16.1",
