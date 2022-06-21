@@ -2,40 +2,41 @@
 [![Linkedin Badge](https://img.shields.io/badge/-matheusgbatista-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/matheusgbatista-3392bb153/)](https://www.linkedin.com/in/matheusgbatista/) 
 [![MyWeb Badge](https://img.shields.io/badge/-t--heu.github.io-333?style=flat-square&link=https://t-heu.github.io/)](https://t-heu.github.io) 
 
-# Screenshot
+# 📷 Screenshot
 <p align="center">
   <img alt="home" src="./.github/mockup.png" width="650" />
 </p>
 
-# Benefícios
-- Prático e rápido.
-- Cálculo automático de preço quando a peça for jogo.
-- Padronização de modelo fixo, sem ter problemas de desconfiguração do modelo como por exemplo: largura maior ou menor, fontes, borda ou cor.
+# 📄 About
+O gerador vem pra facilitar e automatizar processos mais lentos que envolve visuais para vitrines, ele é: prático e rápido, calcula de forma automática preços quando a produto for jogo, mantém uma padronização de modelo fixo, sem ter problemas de desconfiguração do modelo como por exemplo: largura maior ou menor, fontes, borda ou cor.
 
-# Observações
-- Caso uma impressão de um arquivo PDF fique um pouco menor procure marca a caixinha de "imprimir tamanho real".
+_Observações: Caso a impressão fique um pouco menor procure marca a caixinha de "imprimir tamanho real"._
 
-# Instalação
-- at the root
+#  ⚡ Tech Stack
+- [EJs](https://ejs.co/)
+- [ExpressJS](https://expressjs.com/)
+- [Sentry](https://docs.sentry.io/)
+
+# ⚙️ Como excutar
+1° install, at the root
 ```shell
 npm i or yarn
 ```
-- at the root of the `/electron` folder
+At the root of the `/electron` folder
 ```shell
 npm i or yarn
 ```
 
-# Como excutar
-- run electron build or dev
+Run electron build or dev
 ```shell
 sh start.sh
 ```
-- build the program based on the system you are on:
-- run in `/electron` folder
+Build the program based on the system you are on:
+Run in `/electron` folder
 ```shell
 npm run make or yarn make
 ```
-- run web only
+Run web only
 ```shell
 npm run start or yarn start
 ```
