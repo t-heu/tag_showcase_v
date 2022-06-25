@@ -1,0 +1,20 @@
+$colorOne: #2c5396;
+$colorTwo: #fdd63a;
+$colorThree: #fff;
+$colorFour: #333;
+$colorFive: #000;
+
+@font-face {
+  font-family: 'Roboto';
+  src: 
+    url('/assets/fonts/Roboto/Roboto-Regular.ttf') format('ttf'), 
+    url('/assets/fonts/Roboto/Roboto-Bold.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ccode39';
+  src: url('/assets/fonts/ConnectCode39.ttf');
+  font-weight: normal;
+  font-style: normal;
+}

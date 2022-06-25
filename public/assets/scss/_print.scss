@@ -1,0 +1,15 @@
+@mixin print($m1, $m2, $m3, $m4) {
+  @media print {
+    @page {
+      size: A4 portrait;
+      margin: #{$m1} #{$m2} #{$m3} #{$m4};
+      /*margin: 10mm auto 13.8mm auto;*/
+    }
+    .print {
+      display: block;
+    }
+    .no-print {
+      display: none;
+    }
+  }
+}

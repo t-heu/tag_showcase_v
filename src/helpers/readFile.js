@@ -1,21 +1,19 @@
-import xlsx from 'xlsx';
+const xlsx = require('xlsx');
 
-import {IData, IDataResponse} from '../dtos'
+const AppError = require('../utils/appError');
 
-function read_file(file: any): string | IData[] {
+function read_file(file, { descriptionOptional }) {
   const wb = xlsx.read(file, { type: 'buffer', raw: true });
   const wsname = wb.SheetNames[0];
   const ws = wb.Sheets[wsname];
   const data = xlsx.utils.sheet_to_json(ws);
 
-  if (data.length === 0) {
-    return 'Arquivo não pode está vazio!';
-  }
+  if (data.length === 0) throw new AppError('Arquivo não pode está vazio!');
 
-  return data.map((products: any): string | IDataResponse[] => {
-    const { cad, description, price, mark, reference, jogo }: IData = {
+  return data.map(products => {
+    const { cad, description, price, mark, reference, jogo } = {
       description:
-        products['Descrição'] || products.Mercadoria || products['Desc.'] || '',
+        products['Descrição'] || products['DescriÃ§Ã£o'] || products.Mercadoria || products['Desc.'] || '',
       cad:
         products['Ref/CAD'] ||
         products['Ref. Cód. Original/CAD'] ||
@@ -23,26 +21,25 @@ function read_file(file: any): string | IData[] {
         products.CAD,
       price:
         products['Preço'] ||
+        products['PreÃ§o'] ||
         products['Preço Atual'] ||
         products['PreÃ§o Atual'] ||
         products['Preço de Venda'],
       mark: products.Marca || '',
-      jogo: products.Jogo || "1",
+      jogo: products.Jogo || 1,
       reference:
         products['Referência'] || products['ReferÃªncia'] || products['Ref.'] || products.Ref || '',
     };
-/*
-    if (!variation_list.desc) {
-      return 'Arquivo enviado faltando campo "Descrição"!';
-    }
 
-    if (!variation_list.cad_and_ref) {
-      return 'Arquivo enviado faltando campo "Ref/CAD"!';
-    }
-
-    if (!variation_list.price) {
-      return 'Arquivo enviado faltando campo "Preço"!';
-    }*/
+    /*
+        if (!description && !descriptionOptional)
+          throw new AppError('Arquivo enviado faltando campo "Descrição"!');
+    
+        if (!cad && !reference)
+          throw new AppError('Arquivo enviado faltando campo "Refência ou CAD"!');
+    
+        if (!price) throw new AppError('Arquivo enviado faltando campo "Preço"!');
+    */
 
     function filterCodes() {
       if (cad && reference) {
@@ -55,13 +52,10 @@ function read_file(file: any): string | IData[] {
     }
 
     function filterPrice() {
-      const jogoCalc = Number(jogo);
-      const priceCalc = Number(price);
+      const value = String(price).indexOf(',') !== -1
+        ? Number(jogo * price.replace(',', '.'))
+        : Number(jogo * price);
 
-      const value = String(price).indexOf(',') !== -1 && price
-      ? jogoCalc * Number(price.replace(',', '.'))
-      : jogoCalc * priceCalc;
-      
       return isNaN(value) ? "" : value;
     }
 
@@ -75,4 +69,4 @@ function read_file(file: any): string | IData[] {
   });
 }
 
-export default read_file;
+module.exports = read_file;
