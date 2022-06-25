@@ -4,6 +4,16 @@ $colorThree: #fff;
 $colorFour: #333;
 $colorFive: #000;
 
+* {
+  margin: 0;
+  outline: 0;
+}
+a {
+  text-decoration: none;
+}
+button {
+  border: none;
+}
 @font-face {
   font-family: 'Roboto';
   src: 
@@ -17,4 +27,9 @@ $colorFive: #000;
   src: url('/assets/fonts/ConnectCode39.ttf');
   font-weight: normal;
   font-style: normal;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
 }

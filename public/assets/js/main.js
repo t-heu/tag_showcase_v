@@ -10,7 +10,7 @@ if (toast)
       toast.style.display = 'none';
     };
 
-const inputs = document.querySelectorAll('.a');
+const inputs = document.querySelectorAll('.content');
 
 function customInput(el) {
   const fileInput = el.querySelector('[type="file"]');

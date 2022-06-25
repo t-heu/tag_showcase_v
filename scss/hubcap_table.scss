@@ -1,5 +1,4 @@
-@import "reset";
-@import "config";
+@import "base";
 @import "print";
 
 html, body {
@@ -36,10 +35,7 @@ body {
 }
 .header__backhome, .header__print {
   cursor: pointer;
-  color: $colorFour;
-  background-color: $colorThree;
-  border-radius: 50%;
-  padding: 8px;
+  color: $colorThree;
 }
 .container {
   margin-top: 2em;
@@ -49,6 +45,10 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 0fr);
+
+  &:nth-child(1) {
+    border-left: solid 1px $colorFive;
+  }
 
   & p {
     text-align: center;
@@ -60,18 +60,15 @@ body {
   & p:nth-child(2), & p:nth-child(3) {
     width: 74px;
   }
-  & p:nth-child(1), & p:nth-child(2), & p:nth-child(3), 
-  & p:nth-child(1n+3), & p:nth-child(2n+3), & p:nth-child(3n+3) {
-    border: solid 1px $colorFive;
-    border-bottom: none;
-    border-left: none;
+  @for $i from 1 through 87 {
+    & p:nth-child(#{$i}) {
+      border: solid 1px $colorFive;
+      border-bottom: none;
+      border-left: none;
+    }
   }
   & p:nth-child(85), & p:nth-child(86), & p:nth-child(87) {
-    border: solid 1px $colorFive;
-    border-left: none;
-  }
-  &:nth-child(1) {
-    border-left: solid 1px $colorFive;
+    border-bottom: solid 1px $colorFive;
   }
 }
 .title {

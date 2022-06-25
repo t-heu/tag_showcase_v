@@ -1,5 +1,4 @@
-@import "reset";
-@import "config";
+@import "base";
 
 html, body {
   height: auto;
@@ -23,7 +22,7 @@ body {
   align-items: center;
   flex-direction: column;
 }
-.a {
+.content {
   width: 100%;
   margin: 1em 2em;
   max-width: 400px;
@@ -31,6 +30,13 @@ body {
   border-radius: 4px;
   background: $colorThree;
   padding: 19px;
+
+  h2 {
+    color: $colorFour;
+    font-size: 16px;
+    margin: 0 0 1em 0;
+    text-align: center;
+  }
 
   & > form {
     display: flex;
@@ -110,9 +116,6 @@ body {
   color: #e5e5e5;
   font-size: 14px;
 }
-.black {
-  color: $colorFour;
-}
 .toast {
   position: fixed;
   top: 2em;
@@ -127,7 +130,7 @@ body {
   transition: 1s;
   margin-bottom: 1em;
 }
-.toast__container-1 {
+.toast__container-1, .toast__container-2 {
   align-self: center;
 
   & i {
@@ -135,20 +138,16 @@ body {
     color: #ff353b;
     padding-right: 10px;
   }
-}
-.toast__container-2 {
-    align-self: center;
-  
-  & p:first-child {
-    color: $colorFour;
-    font-weight: 600;
-    font-size: 16px;
-  }
-  & p:last-child {
-    font-size: 14px;
-    color: #656565;
-    font-weight: 400;
-  }
+    & p:first-child {
+      color: $colorFour;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    & p:last-child {
+      font-size: 14px;
+      color: #656565;
+      font-weight: 400;
+    }
 }
 .toast__button--close {
   align-self: center;
