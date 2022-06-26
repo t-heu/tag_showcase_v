@@ -46,7 +46,7 @@ function read_file(file, { descriptionOptional }) {
         return `${cad} / ${reference}`;
       }
       if (cad) {
-        return String(cad));
+        return String(cad);
       }
       return String(reference);
     }
@@ -60,11 +60,11 @@ function read_file(file, { descriptionOptional }) {
     }
 
     return {
-      description: String(description.slice(0, 92)).toUpperCase().trim(),
+      description: String(description).toUpperCase().trim().slice(0, 92),
       mark: String(mark).toUpperCase().trim(),
       cad: filterCodes().trim().slice(0, 37),
       price: filterPrice(),
-      barcode: filterCodes().split('/')[0].slice(0, 15).trim(),
+      barcode: filterCodes().split('/')[0].trim().slice(0, 15),
     };
   });
 }
