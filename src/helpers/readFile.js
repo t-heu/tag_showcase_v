@@ -64,7 +64,7 @@ function read_file(file, { descriptionOptional }) {
       mark: String(mark).toUpperCase().trim(),
       cad: filterCodes().trim().slice(0, 37),
       price: filterPrice(),
-      barcode: filterCodes().split('/')[0].trim().slice(0, 15),
+      barcode: filterCodes().split('/')[0].trim().slice(0, 14),
     };
   });
 }
