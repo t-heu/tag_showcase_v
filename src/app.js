@@ -1,4 +1,5 @@
 const express = require('express');
+const nunjucks = require('nunjucks')
 const path = require('path');
 const helmet = require('helmet');
 const flash = require('connect-flash');
@@ -15,7 +16,11 @@ const app = express();
 Sentry.init({
   dsn: process.env.NODE_ENV === 'production' ? process.env.SENTRY_DSN : null,
 });
-app.set('view engine', 'ejs');
+nunjucks.configure('views', {
+  autoescape: true,
+  express: app,
+  watch: true,
+});
 app.use('/', express.static(path.join(__dirname, '../public')));
 app.use(
   session({
@@ -27,7 +32,6 @@ app.use(
   }),
 );
 app.use(flash());
-app.use(helmet());
 app.use((req, res, next) => {
   res.locals.error = req.flash('error');
   next();
@@ -39,6 +43,7 @@ app.use((req, res, next) => {
   );
   next();
 });
+app.use(helmet());
 app.use(routes);
 app.use((err, request, response, _next) => {
   if (err instanceof AppError) {

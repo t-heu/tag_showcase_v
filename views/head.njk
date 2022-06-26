@@ -21,14 +21,13 @@
   <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/maskable_icon_x128.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-  <% if(css ===  '1') { %>
+  {% if css ===  '1' %}
     <link rel="stylesheet" href="/assets/css/home.css" type="text/css" media="screen">
-    <% } else if (css === "2") { %>
+  {% elif css === "2" %}
     <link rel="stylesheet" href="/assets/css/label.css" type="text/css" media="all">
-    <% } else { %>
+  {% else %}
     <link rel="stylesheet" href="/assets/css/hubcap_table.css" type="text/css" media="all">
-  <% } %>
-  <%- include('google-analytics') %>
+  {% endif %}
 </head>
 <body>
   

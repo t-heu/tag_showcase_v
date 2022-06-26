@@ -1,4 +1,4 @@
-<%- include('head') %>
+{% include "head.njk" %}
 
   <div class="header no-print">
     <a title="voltar" class="header__backhome" href="/">
@@ -10,15 +10,15 @@
   </div>
   
   <article class="container">
-    <% data.map(item => { %>
+    {% for item in data %}
       <div class="tag">
-        <p class="tag__description"><%= item.description %></p>
-        <p class="tag__mark"><%= item.mark %></p>
-        <p class="tag__price"><%= item.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).replace('.', ',') %></p>
-        <p class="tag__codebar">*<%= item.barcode %>*</p>
-        <p class="tag__cad"><%= item.cad %></p>
+        <p class="tag__description">{{ item.description }}</p>
+        <p class="tag__mark">{{ item.mark }}</p>
+        <p class="tag__price">{{ item.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).replace('.', ',') }}</p>
+        <p class="tag__codebar">*{{ item.barcode }}*</p>
+        <p class="tag__cad">{{ item.cad }}</p>
       </div>
-    <%  }) %>
+    {%  endfor %}
   </article>
   
-<%- include('footer') %>
+{% include "footer.njk" %}

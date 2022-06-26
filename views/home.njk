@@ -1,26 +1,26 @@
-<%- include('head') %>
+{% include "head.njk" %}
 
-<% if(error !=  '') { %>
+{% if error !=  '' %}
   <div class="toast" id="toast">
     <div class="toast__container-1">
       <i class="fas fa-times-circle"></i>
     </div>
     <div class="toast__container-2">
       <p>Error</p>
-      <p><%= error %></p>
+      <p>{{error}}</p>
     </div>
     <button class="toast__button--close">
       &times;
     </button>
   </div>
-<% } %>
+{% endif %}
 
 <main class="container">
-  <% if(notice_updated_msg !=  '') { %>
+  {% if notice_updated_msg !=  ''%}
     <header class="header">
-      <small class="header__text"><b>ATUALIZAÇÃO: </b><%= notice_updated_msg %></small>
+      <small class="header__text"><b>ATUALIZAÇÃO: </b>{{notice_updated_msg}}</small>
     </header>
-  <% } %>
+  {% endif %}
   
   <div class="content">
     <h2>GERAR ETIQUETAS DE PREÇO PARA VITRINE</h2>
@@ -53,8 +53,8 @@
   </div>
 
   <footer class="footer">
-    <small class="footer__text"><b><%= '</>' %></b> with by <b>Matheus Batista</b></small>
+    <small class="footer__text"><b>{{ '</>' }}</b> with by <b>Matheus Batista</b></small>
   </footer>
 </main>
 
-<%- include('footer') %>
+{% include "footer.njk" %}

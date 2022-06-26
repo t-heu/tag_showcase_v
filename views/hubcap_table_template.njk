@@ -1,4 +1,4 @@
-<%- include('head') %>
+{% include "head.njk" %}
 
   <div class="foreground"></div>
 
@@ -19,35 +19,35 @@
         <p>N°</p>
         <p>CÓDIGO</p>
         <p>PREÇO</p>
-        <% table1.map(item => { %>
-          <p><%= item.id %></p>
-          <p><%= item.ref %></p>
-          <p><%= item.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).replace('.', ',') %></p>
-        <%  }) %>
+        {% for item in table1 %}
+          <p>{{ item.id }}</p>
+          <p>{{ item.ref }}</p>
+          <p>{{ item.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).replace('.', ',') }}</p>
+        {%  endfor %}
       </div>
 
       <div class="table">
         <p>N°</p>
         <p>CÓDIGO</p>
         <p>PREÇO</p>
-        <% table2.map(item => { %>
-          <p><%= item.id %></p>
-          <p><%= item.ref %></p>
-          <p><%= item.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).replace('.', ',') %></p>
-        <%  }) %>
+        {% for item in table2 %}
+          <p>{{ item.id }}</p>
+          <p>{{ item.ref }}</p>
+          <p>{{ item.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).replace('.', ',') }}</p>
+        {%  endfor %}
       </div>
 
       <div class="table">
         <p>N°</p>
         <p>CÓDIGO</p>
         <p>PREÇO</p>
-        <% table3.map(item => { %>
-          <p><%= item.id %></p>
-          <p><%= item.ref %></p>
-          <p><%= item.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).replace('.', ',') %></p>
-        <%  }) %>
+        {% for item in table3 %}
+          <p>{{ item.id }}</p>
+          <p>{{ item.ref }}</p>
+          <p>{{ item.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).replace('.', ',') }}</p>
+        {%  endfor %}
       </div>
     </article>
   </main>
   
-<%- include('footer') %>
+{% include "footer.njk" %}
