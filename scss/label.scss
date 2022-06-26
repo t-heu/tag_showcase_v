@@ -68,13 +68,14 @@ body {
   font-family: 'ccode39';
   font-size: 19px;
   height: 38px;
-  width: 314px;
-  overflow-y: hidden;
+  overflow: hidden;
   text-align: center;
 }
 .tag__cad {
   height: 22px;
   font-size: 12px;
   text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
 }
 @include print(10mm, auto, 13.8mm, auto);
