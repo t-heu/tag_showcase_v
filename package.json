@@ -8,7 +8,7 @@
     "start": "node .",
     "dev": "nodemon . & npm run sass:generate",
     "test": "NODE_ENV=test jest",
-    "sass:generate": "sass --watch ./scss:./public/assets/css --style compressed"
+    "sass:generate": "sass --no-source-map=nonce --watch ./scss:./public/assets/css --style compressed"
   },
   "dependencies": {
     "@sentry/node": "^6.16.1",
