@@ -42,6 +42,6 @@ module.exports = {
     const table2 = arr_data.slice(28, 56);
     const table3 = arr_data.slice(56, 84);
 
-    return response.render('hubcap_table_template.njk', { table1, table2, table3, css: '3' });
+    return response.render('table_hubcap_template.njk.njk', { table1, table2, table3, css: '2' });
   },
 };

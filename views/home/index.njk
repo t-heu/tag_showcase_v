@@ -1,0 +1,44 @@
+{% include "../head.njk" %}
+{% if error !=  '' %}
+  <div class="toast" id="toast">
+    <div class="toast__container-1">
+      <i class="fas fa-times-circle"></i>
+    </div>
+    <div class="toast__container-2">
+      <p>Error</p>
+      <p>{{ error }}</p>
+    </div>
+    <button class="toast__button--close">
+      &times;
+    </button>
+  </div>
+{% endif %}
+<main class="container">
+  {% if notice_updated_msg !=  '' %}
+    <header class="header">
+      <small class="header__text">
+        <b>ATUALIZAÇÃO:
+        </b>
+        {{ notice_updated_msg }}</small>
+    </header>
+  {% endif %}
+  {% if show ===  '1' %}
+    {% include "./tag_price.njk" %}
+  {% elif show === "2" %}
+    {% include "./table_hubcap.njk" %}
+  {% elif show === "3" %}
+    {% include "./tag_wms.njk" %}
+  {% else %}
+    {% include "./tag_wms.njk" %}
+    {% include "./tag_price.njk" %}
+    {% include "./table_hubcap.njk" %}
+  {% endif %}
+  <footer class="footer">
+    <small class="footer__text">
+      <b>{{ '</>' }}</b>
+      with by
+      <b>Matheus Batista</b>
+    </small>
+  </footer>
+</main>
+{% include "footer.njk" %}

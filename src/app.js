@@ -11,13 +11,14 @@ require('express-async-errors');
 const AppError = require('./utils/appError');
 const routes = require('./routes');
 
+Sentry.init({
+  dsn: process.env.NODE_ENV === 'production' ? process.env.SENTRY_DSN : null,
+});
+
 const app = express();
 app.use(express.urlencoded({extended:true}))
 app.use(express.json());
 
-Sentry.init({
-  dsn: process.env.NODE_ENV === 'production' ? process.env.SENTRY_DSN : null,
-});
 nunjucks.configure('views', {
   autoescape: true,
   express: app,

@@ -21,6 +21,6 @@ module.exports = {
       data.map(tag => arr_data.push(tag));
     });
 
-    return response.render('label_template.njk', { data: arr_data, css: '2' });
+    return response.render('tag_price_template.njk', { data: arr_data, css: '1' });
   },
 };

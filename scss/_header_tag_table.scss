@@ -1,0 +1,10 @@
+.header {
+  margin: 1em 0;
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+.header__backhome, .header__print {
+  cursor: pointer;
+  color: $colorFour;
+}

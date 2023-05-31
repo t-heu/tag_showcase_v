@@ -1,0 +1,14 @@
+{% include "head.njk" %}
+{% include "header_print_template.njk" %}
+<article class="container">
+  {% for item in data %}
+    <div class="tag">
+      <p class="tag__description">{{ item.description }}</p>
+      <p class="tag__mark">{{ item.mark }}</p>
+      <p class="tag__price">{{ item.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).replace('.', ',') }}</p>
+      <p class="tag__codebar">*{{ item.barcode }}*</p>
+      <p class="tag__cad">{{ item.cad }}</p>
+    </div>
+  {% endfor %}
+</article>
+{% include "footer.njk" %}

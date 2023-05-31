@@ -1,17 +1,17 @@
 const { Router, response } = require('express');
 const multer = require('multer');
 
-const createLabelController = require('./app/controller/createLabelController');
+const createPriceTagController = require('./app/controller/createPriceTagController');
 const createHubcapTableController = require('./app/controller/createHubcapTableController');
-const createWMSController = require('./app/controller/createWMSController');
+const createWMSTagController = require('./app/controller/createWMSTagController');
 
 const router = Router();
 const upload = multer();
 
-router.get('/', (request, response) => response.render('home.njk', { css: '1', notice_updated_msg: process.env.NOTICE_UPDATED_MSG }));
-router.post('/hubcap', upload.array('file', 1000), createHubcapTableController.store);
-router.post('/wms', createWMSController.store);
-router.post('/label', upload.array('file', 1000), createLabelController.store);
+router.get('/', (request, response) => response.render('home/index.njk', { css: '0', show: process.env.SHOW, notice_updated_msg: process.env.NOTICE_UPDATED_MSG }));
+router.post('/tag/price', upload.array('file', 1000), createPriceTagController.store);
+router.post('/table/hubcap', upload.array('file', 1000), createHubcapTableController.store);
+router.post('/tag/wms', createWMSTagController.store);
 router.use('*', (req, res, next) => res.redirect('/'));
 
 module.exports = router;
