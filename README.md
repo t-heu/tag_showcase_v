@@ -5,7 +5,7 @@
 # 📷 Screenshot
 
 <p align="center">
-  <img alt="home" src="./.github/mockup.png" width="650" />
+  <img alt="home" src="./docs/preview.png" width="650" />
 </p>
 
 # 📄 About
