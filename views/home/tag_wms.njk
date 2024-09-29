@@ -1,32 +1,37 @@
 <div class="content">
   <h2 class="title">GERAR ETIQUETAS WMS</h2>
+
   <form action="/tag/wms" method="post">
-    <div class="box">
-      <p>Filial:     Edificio:</p>
-      <input type="text" name="filial" placeholder="1A"/>
-      <input type="text" name="edificio" placeholder="T"/>
+    <div class="wms_box">
+      <div class="box">
+        <p>Filial:     Edificio:</p>
+        <input type="text" name="filial" placeholder="1A"/>
+        <input type="text" name="edificio" placeholder="T"/>
+      </div>
+      <div class="box">
+        <p>Rua:</p>
+        <input type="text" name="rua_inicial" placeholder="1"/>
+        <input type="text" name="rua_final" placeholder="2"/>
+      </div>
+      <div class="box">
+        <p>Prédio:</p>
+        <input type="text" name="predio_inicial" placeholder="AE"/>
+        <input type="text" name="predio_final" placeholder="BE"/>
+      </div>
+      <div class="box">
+        <p>Andar:</p>
+        <input type="text" name="andar_inicial" placeholder="1"/>
+        <input type="text" name="andar_final" placeholder="2"/>
+      </div>
+      <div class="box">
+        <p>Box:</p>
+        <input type="text" name="box_inicial" placeholder="A"/>
+        <input type="text" name="box_final" placeholder="Z"/>
+      </div>
     </div>
-    <div class="box">
-      <p>Rua:</p>
-      <input type="text" name="rua_inicial" placeholder="1"/>
-      <input type="text" name="rua_final" placeholder="2"/>
-    </div>
-    <div class="box">
-      <p>Prédio:</p>
-      <input type="text" name="predio_inicial" placeholder="AE"/>
-      <input type="text" name="predio_final" placeholder="BE"/>
-    </div>
-    <div class="box">
-      <p>Andar:</p>
-      <input type="text" name="andar_inicial" placeholder="1"/>
-      <input type="text" name="andar_final" placeholder="2"/>
-    </div>
-    <div class="box">
-      <p>Box:</p>
-      <input type="text" name="box_inicial" placeholder="A"/>
-      <input type="text" name="box_final" placeholder="Z"/>
-    </div>
+    
     <br/>
     <button title="Enviar" type="submit" class="file-input__button">GERAR</button>
-  </div>
-</form>
+  </form>
+
+</div>

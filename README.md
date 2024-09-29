@@ -12,7 +12,7 @@
 
 O gerador vem pra facilitar e automatizar processos mais lentos que envolve visuais para vitrines, ele é: prático e rápido, calcula de forma automática preços quando a produto for jogo, mantém uma padronização de modelo fixo, sem ter problemas de desconfiguração do modelo como por exemplo: largura maior ou menor, fontes, borda ou cor.
 
-_Observações: Caso a impressão fique um pouco menor procure marca a caixinha de "imprimir tamanho real"._
+_Observações: Para impressão ser impressa correta procure marca a caixinha de "imprimir tamanho real"._
 
 # ⚡ Tech Stack
 

@@ -1,8 +1,10 @@
 @import "base";
 
-html, body {
+html,
+body {
   height: auto;
 }
+
 body {
   padding: 0 32px;
   background-color: $colorOne;
@@ -10,11 +12,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .link {
   text-decoration: none;
   color: $colorOne;
   margin-top: 1em;
 }
+
 .container {
   display: flex;
   width: 100%;
@@ -22,6 +26,7 @@ body {
   align-items: center;
   flex-direction: column;
 }
+
 .content {
   width: 100%;
   margin: 1em 2em;
@@ -38,12 +43,22 @@ body {
     text-align: center;
   }
 
-  & > form {
+  &>form {
     display: flex;
     align-items: center;
     flex-direction: column;
   }
 }
+
+.wms_box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.box {
+  padding: .5em;
+}
+
 .content .box input {
   padding: 1em;
   border-radius: 5%;
@@ -51,17 +66,19 @@ body {
   width: 50px;
   height: 50px;
 }
+
 .content .box p {
   font-weight: bold;
   text-align: center;
 }
+
 .file-input__form {
   display: flex;
   align-items: center;
   position: relative;
   width: 100%;
 
-  & > [type='file'] {
+  &>[type='file'] {
     position: absolute;
     left: 0;
     width: 100%;
@@ -71,6 +88,7 @@ body {
     cursor: pointer;
   }
 }
+
 .file-input__button {
   cursor: pointer;
   background: $colorTwo;
@@ -84,12 +102,13 @@ body {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   margin-bottom: 1em;
-  
+
   &:hover {
     background: $colorOne;
     color: $colorThree;
   }
 }
+
 .file-input__text {
   font-size: 16px;
   width: 100%;
@@ -99,7 +118,7 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 
-  .file-input__form > & {
+  .file-input__form>& {
     text-align: center;
     overflow-x: scroll;
     padding: 16px;
@@ -115,18 +134,23 @@ body {
     }
   }
 
-  .file-input__button:hover ~ .file-input__form > & {
+  .file-input__button:hover~.file-input__form>& {
     border-color: $colorOne;
   }
 }
-.footer, .header {
+
+.footer,
+.header {
   margin: 1em 0;
   text-align: center;
 }
-.footer__text, .header__text {
+
+.footer__text,
+.header__text {
   color: #e5e5e5;
   font-size: 14px;
 }
+
 .toast {
   position: fixed;
   top: 2em;
@@ -141,7 +165,9 @@ body {
   transition: 1s;
   margin-bottom: 1em;
 }
-.toast__container-1, .toast__container-2 {
+
+.toast__container-1,
+.toast__container-2 {
   align-self: center;
 
   & i {
@@ -149,17 +175,20 @@ body {
     color: #ff353b;
     padding-right: 10px;
   }
-    & p:first-child {
-      color: $colorFour;
-      font-weight: 600;
-      font-size: 16px;
-    }
-    & p:last-child {
-      font-size: 14px;
-      color: #656565;
-      font-weight: 400;
-    }
+
+  & p:first-child {
+    color: $colorFour;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  & p:last-child {
+    font-size: 14px;
+    color: #656565;
+    font-weight: 400;
+  }
 }
+
 .toast__button--close {
   align-self: center;
   background-color: transparent;

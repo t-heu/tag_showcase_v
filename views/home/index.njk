@@ -13,6 +13,7 @@
     </button>
   </div>
 {% endif %}
+
 <main class="container">
   {% if notice_updated_msg !=  '' %}
     <header class="header">
@@ -22,6 +23,7 @@
         {{ notice_updated_msg }}</small>
     </header>
   {% endif %}
+
   {% if show ===  '1' %}
     {% include "./tag_price.njk" %}
   {% elif show === "2" %}
@@ -33,6 +35,7 @@
     {% include "./tag_price.njk" %}
     {% include "./table_hubcap.njk" %}
   {% endif %}
+
   <footer class="footer">
     <small class="footer__text">
       <b>{{ '</>' }}</b>
@@ -41,5 +44,6 @@
     </small>
   </footer>
 </main>
+
 <script src="/assets/js/home.js"></script>
 {% include "footer.njk" %}

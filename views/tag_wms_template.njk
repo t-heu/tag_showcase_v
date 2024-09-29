@@ -3,8 +3,10 @@
 <article class="container">
   {% for i in data %}
     <div class="wms">
-      <p class="wms__text">{{ i.split(removePrefix).join("") }}</p>
-      <p class="wms__codebar">*{{ i }}*</p>
+      <div>
+        <p class="wms__text">{{ i.split(removePrefix).join("") }}</p>
+        <p class="wms__codebar">*{{ i }}*</p>
+      </div>
     </div>
   {% endfor %}
 </article>
