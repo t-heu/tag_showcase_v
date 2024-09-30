@@ -1,13 +1,13 @@
 {% include "head.njk" %}
 {% include "header_print_template.njk" %}
+
 <article class="container">
   {% for i in data %}
     <div class="wms">
-      <div>
-        <p class="wms__text">{{ i.split(removePrefix).join("") }}</p>
-        <p class="wms__codebar">*{{ i }}*</p>
-      </div>
+      <p class="wms__text">{{ i.text.split(removePrefix).join("") }}</p>
+      <img src={{i.qrCodeData}} class="wms__codebar" >
     </div>
   {% endfor %}
 </article>
+
 {% include "footer.njk" %}

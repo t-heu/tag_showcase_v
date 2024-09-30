@@ -1,8 +1,10 @@
 {% include "head.njk" %}
 {% include "header_print_template.njk" %}
+
 <div class="foreground"></div>
 <main class="container">
   <h1 class="title">TABELA DE PREÇOS DE CALOTA</h1>
+  
   <article class="tables">
     <div class="table">
       <p>N°</p>
@@ -14,6 +16,7 @@
         <p>{{ item.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).replace('.', ',') }}</p>
       {% endfor %}
     </div>
+
     <div class="table">
       <p>N°</p>
       <p>CÓDIGO</p>
@@ -24,6 +27,7 @@
         <p>{{ item.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).replace('.', ',') }}</p>
       {% endfor %}
     </div>
+
     <div class="table">
       <p>N°</p>
       <p>CÓDIGO</p>
@@ -36,4 +40,5 @@
     </div>
   </article>
 </main>
+
 {% include "footer.njk" %}

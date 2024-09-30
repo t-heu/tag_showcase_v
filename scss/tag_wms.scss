@@ -21,26 +21,25 @@ body {
 .wms {
   display: flex;
   justify-content: center;
+  flex-direction: row;
   align-items: center;
-  /*display: block;*/
   width: 5cm;
-  /*200px;*/
   height: 2.5cm;
   margin: .1em;
-  /*padding: .5em;*/
   border: dotted 1px #e5e5e5;
 }
 
 .wms__text {
   font-family: Roboto;
   text-align: center;
-  font-size: 28px;
+  font-size: 18px;
   font-weight: bold;
   margin-bottom: .3em;
 }
 
 .wms__codebar {
-  font-family: 'ccode39';
+  width: 90px;
+  height: 90px;
   font-size: 10px;
   overflow: hidden;
   text-align: center;

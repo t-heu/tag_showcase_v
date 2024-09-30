@@ -1,13 +1,14 @@
-const {gerarSequencia} = require('../../helpers/generateSequencial');
+const { gerarSequencia } = require('../../helpers/generateSequencial');
 const AppError = require('../../utils/appError');
+const QRCode = require('qrcode');
 
 module.exports = {
   async store(request, response) {
-    const { 
+    const {
       filial,
       edificio,
-      rua_inicial,     
-      rua_final,       
+      rua_inicial,
+      rua_final,
       predio_inicial,
       predio_final,
       andar_inicial,
@@ -16,7 +17,7 @@ module.exports = {
       box_final } = request.body;
 
     if (!filial || !edificio || !rua_inicial || !rua_final || !predio_inicial || !predio_final || !andar_inicial || !andar_final || !box_inicial || !box_final)
-        throw new AppError('Preencha todos os campos!');
+      throw new AppError('Preencha todos os campos!');
 
     if (predio_inicial.toUpperCase().trim().slice(1) != predio_final.toUpperCase().trim().slice(1)) {
       throw new AppError('Lados diferentes!');
@@ -44,6 +45,18 @@ module.exports = {
       }
     });
 
-    return response.render('tag_wms_template.njk', { css: '3', removePrefix: `${filial.toUpperCase().trim()} ${edificio.toUpperCase().trim()}`, data: data_res });
+    const data = await Promise.all(data_res.map(async (text, i) => {
+      const qrCodeData = await QRCode.toDataURL(text);
+      return {
+        text,
+        qrCodeData
+      };
+    }));
+
+    return response.render('tag_wms_template.njk', {
+      css: '3',
+      removePrefix: `${filial.toUpperCase().trim()} ${edificio.toUpperCase().trim()}`,
+      data,
+    });
   },
 };

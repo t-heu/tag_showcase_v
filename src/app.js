@@ -16,7 +16,7 @@ Sentry.init({
 });
 
 const app = express();
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 
 nunjucks.configure('views', {
@@ -42,9 +42,9 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
-    "default-src 'self' www.google-analytics.com; frame-src 'self'; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com; img-src 'self' www.googletagmanager.com www.google-analytics.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; script-src 'self' 'unsafe-eval' 'nonce-G-SQ2MFD61V6' data: www.googletagmanager.com www.google-analytics.com;",
+    "default-src 'self' www.google-analytics.com; frame-src 'self'; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com; img-src 'self' www.googletagmanager.com www.google-analytics.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; script-src 'self' 'unsafe-eval' 'nonce-G-SQ2MFD61V6' data: www.googletagmanager.com www.google-analytics.com; script-src 'self'",
   );
-  next();
+  next()
 });
 app.use(helmet());
 app.use(routes);
